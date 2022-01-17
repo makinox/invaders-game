@@ -1,10 +1,13 @@
 import kaboom from 'kaboom';
+import enemy from '/assets/enemy.png';
+import wall from '/assets/wall.png';
+import block from '/assets/block.png';
 
 kaboom();
 
-loadSprite('enemy', '/assets/enemy.png');
-loadSprite('wall', '/assets/wall.png');
-loadSprite('block', '/assets/block.png');
+loadSprite('enemy', enemy);
+loadSprite('wall', wall);
+loadSprite('block', block);
 
 addLevel(
   [
