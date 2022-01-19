@@ -65,7 +65,6 @@ function spawnBullet(p: Vec2) {
 }
 
 keyPress('space', () => {
-  console.log('space');
   spawnBullet(player.pos.add(29, -25));
 });
 
@@ -149,5 +148,3 @@ action('enemy', (enemy) => {
     go('lose', score.value);
   }
 });
-
-// 45
