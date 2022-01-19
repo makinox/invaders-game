@@ -1,13 +1,17 @@
-import kaboom, { GameObj, SpriteComp, Vec2 } from 'kaboom';
+import kaboom, { Vec2 } from 'kaboom';
 
 import spaceShip from '/assets/space-ship.png';
 import enemy from '/assets/enemy.png';
 import block from '/assets/block.png';
 import wall from '/assets/wall.png';
 import lose from './scenes/lose';
+import win from './scenes/win';
 
-kaboom();
+kaboom({
+  background: [0, 0, 0],
+});
 lose();
+win();
 
 loadSprite('enemy', enemy);
 loadSprite('wall', wall);
@@ -19,12 +23,10 @@ const BULLET_SPEED = 400;
 const ENEMY_SPEED = 100;
 let CURRENT_SPEED = 100;
 const LEVEL_DOWN = 50;
-const TIME_LEFT = 2;
+const TIME_LEFT = 30;
 
 layer('obj');
 layer('ui');
-
-// const enemies = add([sprite('enemy'), scale(0.5), 'enemy']);
 
 addLevel(
   [
@@ -59,7 +61,7 @@ keyDown('right', () => {
 });
 
 function spawnBullet(p: Vec2) {
-  add([rect(6, 18), pos(p), color(0.5, 0.5, 1), area(), 'bullet']);
+  add([rect(6, 18), pos(p), color(255, 255, 255), area(), 'bullet']);
 }
 
 keyPress('space', () => {
@@ -76,23 +78,26 @@ action('bullet', (bullet) => {
 
 const score = add([
   text('0'),
-  pos(50, 50),
+  pos(830, 50),
   layer('ui'),
-  // scale(3),
+  scale(0.5),
   {
     value: 0,
   },
 ]);
 
+add([text('Score:'), pos(685, 50), scale(0.5), layer('ui')]);
+
 const timer = add([
   text('0'),
-  pos(190, 90),
-  // scale(3),
+  pos(810, 100),
+  scale(0.5),
   layer('ui'),
   {
     time: TIME_LEFT,
   },
 ]);
+add([text('Time:'), pos(685, 100), scale(0.5), layer('ui')]);
 
 timer.onUpdate(() => {
   timer.time -= dt();
@@ -100,7 +105,11 @@ timer.onUpdate(() => {
 
   if (timer.time <= 0) {
     timer.text = '0000';
-    // go('lose', 100);
+    go('lose', score.value);
+  }
+
+  if (score.value >= 45) {
+    go('win', score.value);
   }
 });
 
@@ -123,8 +132,7 @@ onCollide('enemy', 'left-wall', () => {
 });
 
 onCollide('enemy', 'player', () => {
-  // console.log('loose');
-  // go('lose', 100);
+  go('lose', score.value);
 });
 
 onCollide('bullet', 'enemy', (bullet, enemy) => {
@@ -138,7 +146,8 @@ onCollide('bullet', 'enemy', (bullet, enemy) => {
 
 action('enemy', (enemy) => {
   if (enemy.pos.y >= 12 * 22) {
-    console.log('loose');
-    // go('lose', 100);
+    go('lose', score.value);
   }
 });
+
+// 45
