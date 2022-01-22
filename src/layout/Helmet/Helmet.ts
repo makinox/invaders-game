@@ -7,11 +7,11 @@ export default function Helmet() {
 
   const imageFace = document.createElement('meta');
   imageFace.name = 'og:image';
-  imageFace.content = Icon;
+  imageFace.content = window.location.href.substring(0, window.location.href.length - 1) + Icon;
 
   const imageTw = document.createElement('meta');
   imageTw.name = 'twitter:image';
-  imageTw.content = Icon;
+  imageTw.content = window.location.href.substring(0, window.location.href.length - 1) + Icon;
 
   document.head.appendChild(faviconElement);
   document.head.appendChild(imageFace);
