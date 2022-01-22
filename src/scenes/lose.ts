@@ -1,5 +1,5 @@
 export default function lose() {
   return scene('lose', (args) => {
-    add([text(args), scale(1), pos(width() / 2, height() / 2)]);
+    add([text(`You loose: ${args}`), scale(2), pos(width() / 2.5, height() / 2)]);
   });
 }

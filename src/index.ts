@@ -8,6 +8,10 @@ import lose from './scenes/lose';
 import win from './scenes/win';
 
 kaboom({
+  width: 900,
+  height: 400,
+  font: 'sinko',
+  canvas: document.querySelector('#invaders-canvas'),
   background: [0, 0, 0],
 });
 lose();
@@ -51,7 +55,7 @@ addLevel(
   }
 );
 
-const player = add([sprite('spaceShip'), pos(width() / 5, height() / 2.8), area(), 'player']);
+const player = add([sprite('spaceShip'), pos(width() / 3, height() / 1.5), area(), 'player']);
 keyDown('left', () => {
   player.move(-MOVE_SPEED, 0);
 });
@@ -79,28 +83,28 @@ const score = add([
   text('0'),
   pos(830, 50),
   layer('ui'),
-  scale(0.5),
+  scale(2),
   {
     value: 0,
   },
 ]);
 
-add([text('Score:'), pos(685, 50), scale(0.5), layer('ui')]);
+add([text('Score:'), pos(685, 50), scale(2), layer('ui')]);
 
 const timer = add([
   text('0'),
   pos(810, 100),
-  scale(0.5),
+  scale(2),
   layer('ui'),
   {
     time: TIME_LEFT,
   },
 ]);
-add([text('Time:'), pos(685, 100), scale(0.5), layer('ui')]);
+add([text('Time:'), pos(685, 100), scale(2), layer('ui')]);
 
 timer.onUpdate(() => {
   timer.time -= dt();
-  timer.text = timer.time.toFixed(2).toString();
+  timer.text = timer.time.toFixed(1).toString();
 
   if (timer.time <= 0) {
     timer.text = '0000';

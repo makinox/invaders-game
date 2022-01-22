@@ -1,5 +1,5 @@
 export default function win() {
   return scene('win', (args) => {
-    add([text('you win'), scale(1), pos(width() / 2, height() / 2)]);
+    add([text(`you win: ${args}`), scale(2), pos(width() / 2.5, height() / 2)]);
   });
 }
