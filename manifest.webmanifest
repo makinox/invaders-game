@@ -1,0 +1,12 @@
+{
+  "name": "Invaders game",
+  "short_name": "Invaders game",
+  "start_url": "/",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "display": "minimal-ui",
+  "icons": [
+    { "src": "assets/enemy.png", "sizes": "30x22", "type": "image/png" },
+    { "src": "assets/enemy.png", "sizes": "any", "type": "image/pngg" }
+  ]
+}
