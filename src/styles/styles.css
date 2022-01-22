@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(var(--light-surface));
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.section-header h3 {
+  background-color: var(--light-background);
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.1);
+}
+
+body section#canva {
+  height: 85%;
+}
+
+body section#canva div {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: var(--light-background);
+  grid-template-columns: repeat(4, 1fr);
+  box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.1);
+}

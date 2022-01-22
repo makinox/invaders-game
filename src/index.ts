@@ -1,10 +1,15 @@
 import kaboom, { Vec2 } from 'kaboom';
 
+import './styles/colors.css';
+import './styles/styles.css';
+import '../node_modules/@makinox/makinox-ui/dist/index.css';
+
 import spaceShip from '/assets/space-ship.png';
 import enemy from '/assets/enemy.png';
 import block from '/assets/block.png';
 import wall from '/assets/wall.png';
 import lose from './scenes/lose';
+import Navbar from './layout/Navbar';
 import win from './scenes/win';
 
 kaboom({
@@ -152,3 +157,5 @@ action('enemy', (enemy) => {
     go('lose', score.value);
   }
 });
+
+Navbar();

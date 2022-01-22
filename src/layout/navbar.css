@@ -1,0 +1,3 @@
+nav section div:last-of-type i:hover {
+  color: rgb(var(--light-primary-variant)) !important;
+}
