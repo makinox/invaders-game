@@ -61,12 +61,27 @@ addLevel(
 );
 
 const player = add([sprite('spaceShip'), pos(width() / 3, height() / 1.5), area(), 'player']);
-keyDown('left', () => {
+
+function moveLeft() {
   player.move(-MOVE_SPEED, 0);
+}
+
+function moveRight() {
+  player.move(MOVE_SPEED, 0);
+}
+
+keyDown('left', () => {
+  moveLeft();
+});
+keyDown('a', () => {
+  moveLeft();
 });
 
 keyDown('right', () => {
-  player.move(MOVE_SPEED, 0);
+  moveRight();
+});
+keyDown('d', () => {
+  moveRight();
 });
 
 function spawnBullet(p: Vec2) {

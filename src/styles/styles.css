@@ -26,3 +26,7 @@ body section#canva div {
   grid-template-columns: repeat(4, 1fr);
   box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.1);
 }
+
+#info {
+  opacity: 0.5;
+}
