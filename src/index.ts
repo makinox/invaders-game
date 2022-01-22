@@ -9,8 +9,11 @@ import enemy from '/assets/enemy.png';
 import block from '/assets/block.png';
 import wall from '/assets/wall.png';
 import lose from './scenes/lose';
-import Navbar from './layout/Navbar';
+import Navbar from './layout/Navbar/Navbar';
+import Helmet from './layout/Helmet/Helmet';
 import win from './scenes/win';
+
+Helmet();
 
 kaboom({
   width: 900,
