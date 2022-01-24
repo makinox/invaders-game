@@ -16,7 +16,7 @@ body {
 }
 
 body section#canva {
-  height: 85%;
+  margin-top: 90px;
 }
 
 body section#canva div {
@@ -28,5 +28,6 @@ body section#canva div {
 }
 
 #info {
+  margin-top: 30px;
   opacity: 0.5;
 }
