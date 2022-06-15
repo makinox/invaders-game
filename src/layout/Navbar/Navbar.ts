@@ -1,4 +1,4 @@
-import { TopBar, FluidContainer, ButtonOutline } from '@makinox/makinox-ui';
+import { TopBar, FluidContainer } from '@makinox/makinox-ui';
 import Icon from '/assets/enemy.png';
 import './navbar.css';
 

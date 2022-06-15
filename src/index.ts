@@ -12,6 +12,7 @@ import lose from './scenes/lose';
 import Navbar from './layout/Navbar/Navbar';
 import Helmet from './layout/Helmet/Helmet';
 import win from './scenes/win';
+import { ButtonContained } from '@makinox/makinox-ui';
 
 Helmet();
 
@@ -176,4 +177,36 @@ action('enemy', (enemy) => {
   }
 });
 
+function controls() {
+  const controlSing = [
+    { id: 'left', class: 'fas fa-arrow-left' },
+    { id: 'right', class: 'fas fa-arrow-right' },
+    { id: 'fire', class: 'fa-solid fa-fire' },
+  ];
+  const controlContainer = document.querySelector('.section-controls');
+  controlSing.forEach((item) => {
+    const coverElement = document.createElement('span');
+    const iconElement = document.createElement('i');
+    iconElement.className = item.class;
+    coverElement.appendChild(iconElement);
+    coverElement.onmousedown = () => {
+      switch (item.id) {
+        case 'left':
+          return moveLeft();
+        case 'right':
+          return moveRight();
+        case 'fire':
+          return spawnBullet(player.pos.add(29, -25));
+      }
+    };
+    coverElement.className = `${ButtonContained()}`;
+    coverElement.style.margin = '10px';
+    controlContainer.appendChild(coverElement);
+  });
+}
+
 Navbar();
+
+controls();
+
+// if (getDeviceType() !== DeviceType.Desktop) controls();
