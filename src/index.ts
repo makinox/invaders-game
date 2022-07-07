@@ -13,6 +13,7 @@ import Navbar from './layout/Navbar/Navbar';
 import Helmet from './layout/Helmet/Helmet';
 import win from './scenes/win';
 import { ButtonContained } from '@makinox/makinox-ui';
+import getDeviceType, { DeviceType } from './utils/utils';
 
 Helmet();
 
@@ -166,6 +167,9 @@ onCollide('bullet', 'enemy', (bullet, enemy) => {
   destroy(bullet);
   destroy(enemy);
   shake(4);
+  if (score.value > 0 && score.value < 2) {
+    document.querySelector('#info')?.remove();
+  }
   const actualScore = score.value + 1;
   score.value = actualScore;
   score.text = actualScore.toString();
@@ -219,4 +223,7 @@ function controls() {
 
 Navbar();
 
-controls();
+if (getDeviceType() !== DeviceType.Desktop) {
+  document.querySelector('#info')?.remove();
+  controls();
+}
