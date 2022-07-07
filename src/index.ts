@@ -185,6 +185,8 @@ function controls() {
   ];
   const controlContainer = document.querySelector('.section-controls');
   controlSing.forEach((item) => {
+    let leftTimer: NodeJS.Timeout = null;
+    let rightTimer: NodeJS.Timeout = null;
     const coverElement = document.createElement('span');
     const iconElement = document.createElement('i');
     iconElement.className = item.class;
@@ -192,11 +194,21 @@ function controls() {
     coverElement.onmousedown = () => {
       switch (item.id) {
         case 'left':
-          return moveLeft();
+          leftTimer = setInterval(() => moveLeft(), 10);
+          break;
         case 'right':
-          return moveRight();
+          rightTimer = setInterval(() => moveRight(), 10);
+          break;
         case 'fire':
           return spawnBullet(player.pos.add(29, -25));
+      }
+    };
+    coverElement.onmouseup = () => {
+      switch (item.id) {
+        case 'left':
+          return clearInterval(leftTimer);
+        case 'right':
+          return clearInterval(rightTimer);
       }
     };
     coverElement.className = `${ButtonContained()}`;
@@ -208,5 +220,3 @@ function controls() {
 Navbar();
 
 controls();
-
-// if (getDeviceType() !== DeviceType.Desktop) controls();
