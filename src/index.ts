@@ -1,5 +1,8 @@
 import kaboom, { Vec2 } from 'kaboom';
 
+import { DeviceType, getDeviceType } from '@makinox/makinox-utils';
+import { ButtonContained } from '@makinox/makinox-ui';
+
 import './styles/colors.css';
 import './styles/styles.css';
 import '../node_modules/@makinox/makinox-ui/dist/index.css';
@@ -12,8 +15,6 @@ import lose from './scenes/lose';
 import Navbar from './layout/Navbar/Navbar';
 import Helmet from './layout/Helmet/Helmet';
 import win from './scenes/win';
-import { ButtonContained } from '@makinox/makinox-ui';
-import getDeviceType, { DeviceType } from './utils/utils';
 
 Helmet();
 

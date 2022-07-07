@@ -311,10 +311,10 @@
   dependencies:
     "@stitches/core" "^1.2.7"
 
-"@makinox/makinox-utils@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@makinox/makinox-utils/-/makinox-utils-1.0.2.tgz#18fe996b7a51a72c0c5c02d6acba1e9a53bb73d2"
-  integrity sha512-lZSNYskuD0F039Vh4vll3SeIYmqS4QNT3xkJKfdIoV2x5yvjbsBHa0vWWsa8SRVUo7lAnr8K7179PpxT3dbGGw==
+"@makinox/makinox-utils@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@makinox/makinox-utils/-/makinox-utils-1.0.3.tgz#6865c2a03df84ab98f3f755b2bfc9d0a44399f7c"
+  integrity sha512-G9+A358gvH845UnKFBlOprQ3/cJf5L1dlFtvQeXp74JEhd0hYghuY8EbW3ZHcl9T1b+ExFHyN9+Fy+ZmlDfCLw==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
